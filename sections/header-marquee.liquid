@@ -1,0 +1,248 @@
+
+<script
+  src="{{ 'marquee.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+{% assign gap_between_elements = section.settings.gap_between_elements %}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<marquee-component
+  class="section spacing-style gap-style color-{{ section.settings.color_scheme }}"
+  style="
+    {%- render 'spacing-style', settings: section.settings %};
+    {% render 'gap-style', value: gap_between_elements, name: 'marquee-gap' %}
+    --marquee-direction: {{ section.settings.movement_direction }};
+  "
+  data-speed-factor="{{ section.settings.speed_factor }}"
+  data-movement-direction="{{ section.settings.movement_direction }}"
+>
+  <div
+    class="marquee__wrapper"
+    ref="wrapper"
+  >
+    <div
+      class="marquee__content"
+      ref="content"
+    >
+      <div
+        class="marquee__repeated-items"
+        ref="marqueeItems[]"
+      >
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'text' %}
+              <span class="marquee__text" style="font-size: {{ block.settings.font_size }}; font-weight: {{ block.settings.font_weight }};" {{ block.shopify_attributes }}>
+                {{ block.settings.text }}
+              </span>
+            {% when 'icon' %}
+              <span class="marquee__icon" style="font-size: {{ block.settings.icon_size }};" {{ block.shopify_attributes }}>
+                {{ block.settings.icon }}
+              </span>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</marquee-component>
+
+{% stylesheet %}
+  marquee-component {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .marquee__wrapper {
+    display: flex;
+    gap: var(--marquee-gap);
+    width: fit-content;
+    white-space: nowrap;
+  }
+
+  .marquee__content {
+    min-width: max-content;
+    display: flex;
+    gap: var(--marquee-gap);
+  }
+
+  .marquee__content :is(p, h1, h2, h3, h4, h5, h6) {
+    white-space: nowrap;
+  }
+
+  .marquee__content .marquee__repeated-items * {
+    max-width: none;
+  }
+
+  .marquee__repeated-items {
+    min-width: max-content;
+    display: flex;
+    gap: var(--marquee-gap);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .marquee__repeated-items > * {
+    align-content: center;
+  }
+
+  .marquee__text {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .marquee__icon {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    marquee-component:not([data-disabled]) .marquee__wrapper {
+      animation: marquee-motion var(--marquee-speed) linear infinite var(--marquee-direction);
+    }
+  }
+
+  @keyframes marquee-motion {
+    to {
+      transform: translate3d(calc(-50% - (var(--marquee-gap) / 2)), 0, 0);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Scrolling Ticker",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "Your message here"
+        },
+        {
+          "type": "select",
+          "id": "font_size",
+          "label": "Font size",
+          "options": [
+            { "value": "0.75rem", "label": "Small" },
+            { "value": "0.875rem", "label": "Medium" },
+            { "value": "1rem", "label": "Large" }
+          ],
+          "default": "0.875rem"
+        },
+        {
+          "type": "select",
+          "id": "font_weight",
+          "label": "Font weight",
+          "options": [
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semibold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "500"
+        }
+      ]
+    },
+    {
+      "type": "icon",
+      "name": "Icon/Emoji",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon or Emoji",
+          "default": "🐬"
+        },
+        {
+          "type": "select",
+          "id": "icon_size",
+          "label": "Icon size",
+          "options": [
+            { "value": "1rem", "label": "Small" },
+            { "value": "1.25rem", "label": "Medium" },
+            { "value": "1.5rem", "label": "Large" }
+          ],
+          "default": "1.25rem"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "range",
+      "id": "speed_factor",
+      "label": "Scroll speed",
+      "info": "Lower = faster",
+      "min": 10,
+      "max": 50,
+      "default": 25
+    },
+    {
+      "type": "select",
+      "id": "movement_direction",
+      "label": "Direction",
+      "options": [
+        { "value": "reverse", "label": "Left to right" },
+        { "value": "normal", "label": "Right to left" }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "gap_between_elements",
+      "label": "Gap between items",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scrolling Ticker",
+      "blocks": [
+        { "type": "icon", "settings": { "icon": "🐬" } },
+        { "type": "text", "settings": { "text": "Dolphins sleep with one eye open!" } },
+        { "type": "icon", "settings": { "icon": "🐢" } },
+        { "type": "text", "settings": { "text": "Sea turtles can hold their breath for 7 hours!" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
