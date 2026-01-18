@@ -333,11 +333,128 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "faq_section": {
+      "type": "section",
+      "blocks": {
+        "faq_heading": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Frequently Asked Questions</h2>",
+            "width": "100%",
+            "alignment": "center",
+            "type_preset": "h2"
+          }
+        },
+        "faq_accordion": {
+          "type": "accordion",
+          "settings": {
+            "icon": "plus",
+            "dividers": true,
+            "type_preset": "h5"
+          },
+          "blocks": {
+            "q1": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Where did WaveAid start?",
+                "open_by_default": true
+              },
+              "blocks": {
+                "a1": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>WaveAid was founded in Newport Beach, California by a group of lifeguards who wanted to make first aid fun and educational for kids. Growing up by the ocean, they saw how a simple bandage could turn tears into smiles — especially when it featured their favorite sea creatures. Today, we're on a mission to help kids learn about ocean life while healing their boo-boos with a splash of fun.</p>",
+                    "width": "100%"
+                  }
+                }
+              },
+              "block_order": ["a1"]
+            },
+            "q2": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "What makes WaveAid bandages special?"
+              },
+              "blocks": {
+                "a2": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Each WaveAid bandage features a beautifully illustrated sea creature — dolphins, sea turtles, sharks, and octopuses. But it's not just about looks! Every pack comes with fun ocean facts that turn a minor injury into a learning moment. Our bandages are latex-free, hypoallergenic, and designed to stay put during beach days and pool parties.</p>",
+                    "width": "100%"
+                  }
+                }
+              },
+              "block_order": ["a2"]
+            },
+            "q3": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "What's included in each pack?"
+              },
+              "blocks": {
+                "a3": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Each collectible tin contains 20-30 assorted bandages featuring different ocean animals. You'll also find a mini ocean fact card inside with fun trivia about the sea creatures on your bandages. The reusable tin is perfect for storing small treasures once the bandages are gone!</p>",
+                    "width": "100%"
+                  }
+                }
+              },
+              "block_order": ["a3"]
+            },
+            "q4": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "What inspired the ocean theme?"
+              },
+              "blocks": {
+                "a4": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>As lifeguards, our founders spent their days protecting beachgoers and fell in love with the incredible marine life along the California coast. They noticed that kids were naturally curious about dolphins, sharks, and sea turtles — so why not combine that wonder with something practical? WaveAid was born from the idea that healing can be an adventure.</p>",
+                    "width": "100%"
+                  }
+                }
+              },
+              "block_order": ["a4"]
+            },
+            "q5": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Do you support ocean conservation?"
+              },
+              "blocks": {
+                "a5": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Absolutely! A portion of every WaveAid purchase goes toward ocean conservation efforts and beach cleanup initiatives. We partner with local organizations to protect the marine ecosystems that inspire our products. When you choose WaveAid, you're helping protect the ocean friends on your bandages.</p>",
+                    "width": "100%"
+                  }
+                }
+              },
+              "block_order": ["a5"]
+            }
+          },
+          "block_order": ["q1", "q2", "q3", "q4", "q5"]
+        }
+      },
+      "block_order": ["faq_heading", "faq_accordion"],
+      "settings": {
+        "content_direction": "column",
+        "horizontal_alignment_flex_direction_column": "center",
+        "gap": 24,
+        "section_width": "page-width",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 60,
+        "padding-block-end": 60
+      }
     }
   },
   "order": [
     "ocean_facts_marquee",
     "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "product_list_fa6P9H",
+    "faq_section"
   ]
 }
