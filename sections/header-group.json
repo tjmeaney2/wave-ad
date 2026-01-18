@@ -11,115 +11,30 @@
   "type": "header",
   "name": "Header",
   "sections": {
-    "header_marquee": {
-      "type": "header-marquee",
+    "promo_bar": {
+      "type": "header-announcements",
       "blocks": {
-        "icon_1": {
-          "type": "icon",
+        "promo": {
+          "type": "_announcement",
           "settings": {
-            "icon": "🐬",
-            "icon_size": "1.25rem"
-          }
-        },
-        "text_1": {
-          "type": "text",
-          "settings": {
-            "text": "Dolphins sleep with one eye open!",
-            "font_size": "0.875rem",
-            "font_weight": "500"
-          }
-        },
-        "icon_2": {
-          "type": "icon",
-          "settings": {
-            "icon": "🐢",
-            "icon_size": "1.25rem"
-          }
-        },
-        "text_2": {
-          "type": "text",
-          "settings": {
-            "text": "Sea turtles can hold their breath for 7 hours!",
-            "font_size": "0.875rem",
-            "font_weight": "500"
-          }
-        },
-        "icon_3": {
-          "type": "icon",
-          "settings": {
-            "icon": "🦈",
-            "icon_size": "1.25rem"
-          }
-        },
-        "text_3": {
-          "type": "text",
-          "settings": {
-            "text": "Sharks are older than dinosaurs!",
-            "font_size": "0.875rem",
-            "font_weight": "500"
-          }
-        },
-        "icon_4": {
-          "type": "icon",
-          "settings": {
-            "icon": "🐙",
-            "icon_size": "1.25rem"
-          }
-        },
-        "text_4": {
-          "type": "text",
-          "settings": {
-            "text": "Octopuses have 3 hearts & blue blood!",
-            "font_size": "0.875rem",
-            "font_weight": "500"
-          }
-        },
-        "icon_5": {
-          "type": "icon",
-          "settings": {
-            "icon": "🌊",
-            "icon_size": "1.25rem"
-          }
-        },
-        "text_5": {
-          "type": "text",
-          "settings": {
-            "text": "Free shipping on orders over $35!",
-            "font_size": "0.875rem",
-            "font_weight": "500"
-          }
-        },
-        "icon_6": {
-          "type": "icon",
-          "settings": {
-            "icon": "🐳",
-            "icon_size": "1.25rem"
-          }
-        },
-        "text_6": {
-          "type": "text",
-          "settings": {
-            "text": "Blue whales are the largest animals ever!",
-            "font_size": "0.875rem",
-            "font_weight": "500"
+            "text": "🌊 FREE SHIPPING on orders over $35",
+            "link": "",
+            "font": "var(--font-subheading--family)",
+            "font_size": "0.75rem",
+            "weight": "500",
+            "letter_spacing": "loose",
+            "case": "uppercase"
           }
         }
       },
-      "block_order": [
-        "icon_1", "text_1",
-        "icon_2", "text_2",
-        "icon_3", "text_3",
-        "icon_4", "text_4",
-        "icon_5", "text_5",
-        "icon_6", "text_6"
-      ],
+      "block_order": ["promo"],
       "settings": {
-        "speed_factor": 30,
-        "movement_direction": "normal",
-        "color_scheme": "scheme-2",
-        "padding-block-start": 10,
-        "padding-block-end": 10,
-        "gap_between_elements": 40
+        "speed": 5,
+        "section_width": "full-width",
+        "color_scheme": "scheme-5",
+        "divider_width": 0,
+        "padding-block-start": 8,
+        "padding-block-end": 8
       }
     },
     "header_section": {
@@ -193,7 +108,7 @@
     }
   },
   "order": [
-    "header_marquee",
+    "promo_bar",
     "header_section"
   ]
 }
