@@ -14,37 +14,37 @@
         "text_1": {
           "type": "text",
           "settings": {
-            "text": "🐬 Dolphins sleep with one eye open!"
+            "text": "<p>🐬 Dolphins sleep with one eye open!</p>"
           }
         },
         "text_2": {
           "type": "text",
           "settings": {
-            "text": "🐢 Sea turtles can hold their breath for 7 hours!"
+            "text": "<p>🐢 Sea turtles can hold their breath for 7 hours!</p>"
           }
         },
         "text_3": {
           "type": "text",
           "settings": {
-            "text": "🦈 Sharks are older than dinosaurs!"
+            "text": "<p>🦈 Sharks are older than dinosaurs!</p>"
           }
         },
         "text_4": {
           "type": "text",
           "settings": {
-            "text": "🐙 Octopuses have 3 hearts & blue blood!"
+            "text": "<p>🐙 Octopuses have 3 hearts &amp; blue blood!</p>"
           }
         },
         "text_5": {
           "type": "text",
           "settings": {
-            "text": "🐳 Blue whales are the largest animals ever!"
+            "text": "<p>🐳 Blue whales are the largest animals ever!</p>"
           }
         },
         "text_6": {
           "type": "text",
           "settings": {
-            "text": "🦑 Giant squid have the largest eyes!"
+            "text": "<p>🦑 Giant squid have the largest eyes!</p>"
           }
         }
       },
